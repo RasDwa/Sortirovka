@@ -2,6 +2,7 @@ public class MyClass {
     public static void main(String args[]) {
      
         int[][] mas = new int[5][8];
+        int[][] mas2;
         
         zapolnenie(mas);
         printMasiv(mas);
@@ -11,6 +12,10 @@ public class MyClass {
         }
         System.out.println();
          printMasiv(mas);
+         System.out.println();
+         mas2 = ext(mas);
+         printMasiv(mas2);
+         
         
  
     }
@@ -43,6 +48,27 @@ public class MyClass {
                 }
             }
         }
+    }
+    public static int[][] ext(int arr[][]) {
+        int [][] minMax = new int[5][2];
+        int min = 0, max = 0;
+        
+        for (int i = 0; i < 5; i++) {
+            min = arr[i][0];
+            max = arr[i][0];
+            
+            for (int j = 1; j <8; j++) {
+                if (arr[i][j] < min) {
+                    min = arr[i][j];
+                }
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+            }
+            minMax[i][0] = min;
+            minMax[i][1] = max;
+        }
+        return minMax;
     }
     
 }
